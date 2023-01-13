@@ -5,11 +5,18 @@ public class Apple {
     private float diameter = 1.0f;
     private int x, y;
     static final float EARTH_ACCEL = 9.8f; // static for the class, accessible for each instance
-    static int SMALL = 0, MEDIUM = 1, LARGE = 2;
     static String COOKING = "Cooking", EATING = "Eating";
     private String type;
-    private int size;
     private String color;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     private void setColor() {
         if (this.type == "Cooking") {
@@ -18,15 +25,15 @@ public class Apple {
             this.color = "Green";
         }
     }
+
+    public static String[] getAppleSizes() {
+        return new String[] {"SMALL", "MEDIUM", "LARGE"};
+    }
+
     public void setType(String type) {
         this.type = type;
         setColor();
     }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public float getMass() {
         return mass;
     }
@@ -71,18 +78,27 @@ public class Apple {
     }
 
     public void printDetails() {
-        System.out.println("  mass: " + mass);
-        System.out.println("  diameter: " + diameter);
-        System.out.println("  position: (" + x + ", " + y + ")");
-        System.out.println("  size: " + size);
-        System.out.println("  type: " + type);
-        System.out.println("  color: " + color);
+        String[] appleSizes = getAppleSizes();
+        System.out.println("-- " + name + " -- ");
+        System.out.println("  Mass: " + mass);
+        System.out.println("  Diameter: " + diameter);
+        System.out.println("  Position: (" + x + ", " + y + ")");
+        if (diameter < 5.0f) {
+            System.out.println("  Size: " + appleSizes[0]);
+        } else if (diameter < 10.0f) {
+            System.out.println("  Size: " + appleSizes[1]);
+        } else {
+            System.out.println("  Size: " + appleSizes[2]);
+        }
+        System.out.println("  Type: " + type);
+        System.out.println("  Color: " + color);
+        getWeight();
+        System.out.println("------ END ------");
     }
     public void getWeight() {
-        System.out.println("Weight " + (mass * EARTH_ACCEL) + "g");;
+        System.out.println("  Weight: " + (mass * EARTH_ACCEL) + "g");;
     }
     public void resetEverything() {
-        setSize( MEDIUM );
         setY(0);
         setX(0);
         setMass(0.0f);
