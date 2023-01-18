@@ -1,4 +1,4 @@
-package com.game;
+package com.stevengodson;
 
 public class Field {
     public Apple a1 = new Apple();

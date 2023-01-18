@@ -1,5 +1,4 @@
-import com.game.Apple;
-import com.game.Field;
+import com.stevengodson.Field;
 
 public class Main {
     public static void main(String[] args) {

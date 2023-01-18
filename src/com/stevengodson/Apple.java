@@ -1,4 +1,4 @@
-package com.game;
+package com.stevengodson;
 
 public class Apple {
     private float mass;
@@ -79,7 +79,7 @@ public class Apple {
 
     public void printDetails() {
         String[] appleSizes = getAppleSizes();
-        System.out.println("-- " + name + " -- ");
+        System.out.println("- " + name + " -");
         System.out.println("  Mass: " + mass);
         System.out.println("  Diameter: " + diameter);
         System.out.println("  Position: (" + x + ", " + y + ")");
